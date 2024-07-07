@@ -2,13 +2,16 @@ import 'package:get/get.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:food_subs/utils/app_colors.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:food_subs/data/models/kitchen_model.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:food_subs/kitchen_details/kitchen_details_screen.dart';
 
 class NearbyKitchensView extends StatefulWidget {
-  const NearbyKitchensView({super.key});
+  final KitchenModel kitchen;
+  const NearbyKitchensView({super.key, required this.kitchen});
 
   @override
   State<NearbyKitchensView> createState() => _NearbyKitchensViewState();
@@ -45,7 +48,7 @@ class _NearbyKitchensViewState extends State<NearbyKitchensView> {
                 onPageChanged: (v, _) => onChangePage(v),
                 scrollDirection: Axis.horizontal,
               ),
-              items: [1, 2, 3, 4, 5].map((i) {
+              items: widget.kitchen.images.map((image) {
                 return Builder(
                   builder: (BuildContext context) {
                     return InkWell(
@@ -54,19 +57,20 @@ class _NearbyKitchensViewState extends State<NearbyKitchensView> {
                         margin: const EdgeInsets.symmetric(horizontal: 12),
                         width: MediaQuery.of(context).size.width,
                         decoration: BoxDecoration(
-                          color: Colors.amber,
+                          color: Colors.white,
                           borderRadius: BorderRadius.circular(12),
                         ),
                         child: Stack(
                           children: [
                             Positioned(
+                              top: 0,
                               bottom: 0,
                               left: 0,
                               right: 0,
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(12),
                                 child: Image.network(
-                                  'https://www.maggi.in/sites/default/files/styles/home_stage_1500_700/public/srh_recipes/fc6088f49739ff73c785ea1bfdb034a7.jpg?h=e5aec6c8&itok=gRaVt7E8',
+                                  image,
                                   fit: BoxFit.fitWidth,
                                 ),
                               ),
@@ -137,7 +141,7 @@ class _NearbyKitchensViewState extends State<NearbyKitchensView> {
               child: Center(
                 child: AnimatedSmoothIndicator(
                   activeIndex: _activeIndex,
-                  count: 5,
+                  count: widget.kitchen.images.length,
                   effect: const ExpandingDotsEffect(
                     dotWidth: 12.0,
                     dotHeight: 4.0,
@@ -152,16 +156,16 @@ class _NearbyKitchensViewState extends State<NearbyKitchensView> {
             ),
           ],
         ),
-        const ListTile(
+        ListTile(
           title: Text(
-            'Annapurna Kitchen',
-            style: TextStyle(
+            widget.kitchen.name ?? '',
+            style: GoogleFonts.ptSansCaption(
               // color: Colors.grey,
               fontSize: 16,
               fontWeight: FontWeight.w600,
             ),
           ),
-          trailing: Row(
+          trailing: const Row(
             mainAxisSize: MainAxisSize.min,
             children: [
               Icon(
@@ -192,12 +196,12 @@ class _NearbyKitchensViewState extends State<NearbyKitchensView> {
                 color: Colors.black,
                 size: 20,
               ),
-              const Flexible(
+              Flexible(
                 child: Text(
-                  ' 4.5 (94)',
+                  ' ${widget.kitchen.rating} (${widget.kitchen.totalRating})',
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
+                  style: GoogleFonts.ptSansCaption(
                     // color: Colors.grey,
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
