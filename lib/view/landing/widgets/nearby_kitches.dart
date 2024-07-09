@@ -7,7 +7,7 @@ import 'package:food_subs/utils/app_colors.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:food_subs/data/models/kitchen_model.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:food_subs/kitchen_details/kitchen_details_screen.dart';
+import 'package:food_subs/view/kitchen_details/kitchen_details_screen.dart';
 
 class NearbyKitchensView extends StatefulWidget {
   final KitchenModel kitchen;

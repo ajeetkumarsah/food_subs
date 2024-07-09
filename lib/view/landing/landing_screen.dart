@@ -4,8 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_subs/utils/app_colors.dart';
 import 'package:food_subs/data/models/kitchen_model.dart';
-import 'package:food_subs/landing/widgets/landing_view.dart';
 import 'package:food_subs/data/models/top_kitchen_model.dart';
+import 'package:food_subs/view/landing/widgets/landing_view.dart';
 
 class LandingScreen extends StatelessWidget {
   const LandingScreen({super.key});

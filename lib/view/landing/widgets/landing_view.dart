@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_subs/utils/app_colors.dart';
-import 'package:food_subs/landing/bloc/kitchen_bloc.dart';
-import 'package:food_subs/landing/widgets/nearby_kitches.dart';
+import 'package:food_subs/view/landing/bloc/kitchen_bloc.dart';
+import 'package:food_subs/view/landing/widgets/nearby_kitches.dart';
 
 class LandingViewWidget extends StatelessWidget {
   const LandingViewWidget({super.key});

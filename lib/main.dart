@@ -1,10 +1,11 @@
+import 'package:get/get.dart';
 import 'data/repo/kitchen_repo.dart';
-import 'landing/landing_screen.dart';
 import 'package:flutter/material.dart';
+import 'view/landing/landing_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_subs/utils/app_colors.dart';
 import 'package:food_subs/data/api/api_client.dart';
-import 'package:food_subs/landing/bloc/kitchen_bloc.dart';
+import 'package:food_subs/view/landing/bloc/kitchen_bloc.dart';
 
 void main() {
   final Repository repository = Repository(apiClient: ApiClient());
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary),
