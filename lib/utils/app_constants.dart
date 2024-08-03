@@ -1,5 +1,9 @@
 class AppConstants {
-  static const baseUrl = 'https://668a7d782c68eaf3211cf0e7.mockapi.io/';
-  static const kitchesUri = 'api/kitchens';
-  static const topKitchesUri = 'api/topkitchens';
+  //sharedPref
+  static const String userId = 'userId';
+  //
+  static const String baseUrl = 'http://15.207.167.2:3000/';
+  static const String kitchesUri = 'kitchens';
+  static const String categoriesUri = 'categories';
+  static const String login = 'users/login';
 }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:food_subs/data/api/api_client.dart';
 import 'package:food_subs/data/repo/kitchen_repo.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 // This is a basic Flutter widget test.
 //
 // To perform an interaction with a widget in your test, use the WidgetTester
@@ -13,8 +14,9 @@ import 'package:food_subs/data/repo/kitchen_repo.dart';
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
     await tester.pumpWidget(MyApp(
-      repo: Repository(apiClient: ApiClient()),
+      repo: Repository(apiClient: ApiClient(), prefs: prefs),
     ));
 
     // Verify that our counter starts at 0.

@@ -1,5 +1,5 @@
 class TopKitchenModel {
-  final int? createdAt;
+  final String? createdAt;
   final String? title;
   final String? image;
   final String? id;
@@ -14,7 +14,7 @@ class TopKitchenModel {
   factory TopKitchenModel.fromJson(Map<String, dynamic> json) =>
       TopKitchenModel(
         createdAt: json["createdAt"],
-        title: json["title"],
+        title: json["name"],
         image: json["image"],
         id: json["id"],
       );

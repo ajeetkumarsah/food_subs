@@ -1,5 +1,5 @@
+import 'package:food_subs/view/widgets/custom_cached_network_image.dart';
 import 'package:get/get.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -69,9 +69,11 @@ class _NearbyKitchensViewState extends State<NearbyKitchensView> {
                               right: 0,
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(12),
-                                child: Image.network(
-                                  image,
+                                child: CustomCachedImage(
+                                  imageUrl: image,
                                   fit: BoxFit.fitWidth,
+                                  height: double.infinity,
+                                  width: double.infinity,
                                 ),
                               ),
                             ),

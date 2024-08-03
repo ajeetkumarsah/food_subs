@@ -3,7 +3,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:food_subs/utils/app_colors.dart';
 import 'package:dotted_border/dotted_border.dart';
-import 'package:flutter_sticky_header/flutter_sticky_header.dart';
 import 'package:food_subs/view/kitchen_details/widgets/order_now.dart';
 
 class KitchenDetailsScreen extends StatelessWidget {
